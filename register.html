@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration</title>
+    <link rel="stylesheet" href="style2.css" />
+  </head>
+  <body>
+    <div class="head">
+      <h1><u>REGISTER PLEASE!!!</u></h1>
+    </div>
+    <div class="box">
+      <section>
+        <h2>Registration</h2>
+        <form id="registrationForm" action="login.html">
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="tel" name="mobile" placeholder="Mobile No." required />
+          <input type="email" name="email" id="email" placeholder="Email" required />
+          <input type="password" name="password" placeholder="Password" required/>
+          <button type="submit" onclick="register()">Submit</button>
+        </form>
+      </section>
+    </div>
+    <script>
+      function register() {
+
+          var name = document.getElementsByName("name")[0].value;
+          var mobile = document.getElementsByName("mobile")[0].value;
+          var email = document.getElementsByName("email")[0].value;
+          var password = document.getElementsByName("password")[0].value;
+    
+          localStorage.setItem("name", name);
+          localStorage.setItem("mobile", mobile);
+          localStorage.setItem("email", email);
+          localStorage.setItem("password", password);
+
+          alert("Registration successful!");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <header>
+        <div class="info">
+            <img src="image\pic.jpg" alt="Profile-Pic">
+            <div class="details" id="user-details">
+                
+            </div>
+        </div>
+        <div class="actions">
+            <button onclick="location.href='item.html'">Items</button>
+            <button onclick="location.href='cart.html'">Cart</button>
+        </div>
+    </header>
+    <div class="box">
+        <section>
+            <h2>Edit Profile</h2>
+            <form id="profile-form">
+                <input type="text" name="address" id="address" placeholder="Address" required>
+                <input type="tel" name="contact" id="contact" placeholder="Other Contact No." required>
+                <button type="button" onclick="saveProfile()">Save</button>
+            </form>
+            <div id="profile-details" style="display: none;">
+                <h3>Profile Details:</h3>
+                <p><strong>Address:</strong> <span id="display-address"></span></p>
+                <p><strong>Contact:</strong> <span id="display-contact"></span></p>
+            </div>
+        </section>
+    </div>
+    <script>
+    var name = localStorage.getItem('name');
+    var mobile = localStorage.getItem('mobile');
+    var email = localStorage.getItem('email');
+
+    var userDetailsHTML = '<h2>' + name + '</h2>';
+    userDetailsHTML += '<p>Mobile No.: ' + mobile + '</p>';
+    userDetailsHTML += '<p>Email: ' + email + '</p>';
+    document.getElementById('user-details').innerHTML = userDetailsHTML;
+    function saveProfile() {
+        var address = document.getElementById('address').value;
+        var contact = document.getElementById('contact').value;
+        document.getElementById('display-address').textContent = address;
+        document.getElementById('display-contact').textContent = contact;
+        document.getElementById('profile-form').style.display = 'none';
+        document.getElementById('profile-details').style.display = 'block';
+    }
+    </script>
+</body>
+</html>

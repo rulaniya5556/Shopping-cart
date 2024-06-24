@@ -1,0 +1,43 @@
+body{
+    background-image: url("image/5.jpg");
+    background-size: cover;
+}
+.head{
+    text-align: center;
+    color: rgb(248, 245, 245);
+    font-size: 30px;
+    margin-top: 70px;
+}
+.box{
+    margin: 100px auto;
+    width: 600px;
+    height: 330px;
+    background-color: rgb(232, 221, 221);
+    text-align: center;
+    box-shadow: 10px 10px 5px rgb(154, 152, 152);
+    border-radius: 30px;
+    padding: 20px;
+}
+.box img{
+    width: 80px;
+    border-radius: 100px;
+}
+.box p{
+    font-size: 30px;
+}
+.but{
+    text-align: center;
+}
+.but button{
+    border-radius: 40px;
+    background-color: #ff9900;
+    padding: 10px 20px;
+    color: white;
+    font-size: 20px;
+    margin-right: 20px;
+    border: 4px solid black;
+}
+.but a{
+    text-decoration: none;
+    color: white;
+}

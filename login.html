@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Login</title>
+    <link rel="stylesheet" href="style2.css"/>
+  </head>
+  <body>
+    <div class="head">
+      <h1><u>Login Now!!!</u></h1>
+    </div>
+    <div class="box">
+      <section>
+        <h2>Login</h2>
+        <form onsubmit="return validateLogin()" action="profile.html">
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="tel" name="mobile" placeholder="Mobile No." required />
+          <input type="password" name="password" placeholder="Password" required/>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </div>
+    <script>
+      function validateLogin() {
+          var name = document.getElementsByName("name")[0].value;
+          var mobile = document.getElementsByName("mobile")[0].value;
+          var password = document.getElementsByName("password")[0].value;
+
+          var storedName = localStorage.getItem("name");
+          var storedMobile = localStorage.getItem("mobile");
+          var storedPassword = localStorage.getItem("password");
+
+          if (name === storedName && password === storedPassword && mobile === storedMobile) {
+              return true; 
+          } else {
+              alert("Incorrect Details. Please try again.");
+              return false; 
+          }
+      }
+  </script>
+  </body>
+</html>

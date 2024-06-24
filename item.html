@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Product Page</title>
+    <link rel="stylesheet" href="style4.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo"><img src="image\logo1.jpg" alt="logo" />ITEMS</div>
+        <button class="cart"><a href="cart.html">GO TO CART</a></button>
+      </nav>
+    </header>
+    <div class="bgimage">
+      <div class="container">
+        <div class="box">
+          <img src="image/SHIRT.jpg" alt="Product 1" /><br />
+          <p>SHIRT<br />$10<br />Rating: 4.5</p>
+          <button class="add" onclick="addToCart('SHIRT', 10)">
+            ADD TO CART
+          </button>
+        </div>
+        <div class="box">
+          <img src="image/JEANS.jpg" alt="Product 2" /><br />
+          <p>JEANS<br />$15<br />Rating: 4.2</p>
+          <button class="add" onclick="addToCart('JEANS', 15)">
+            ADD TO CART
+          </button>
+        </div>
+        <div class="box">
+          <img src="image/BLACK SHOES.jpg" alt="Product 3" /><br />
+          <p>BLACK SHOES<br />$5<br />Rating: 4.7</p>
+          <button class="add" onclick="addToCart('BLACK SHOES', 5)">
+            ADD TO CART
+          </button>
+        </div>
+        <div class="box">
+          <img src="image/GLASSES.jpg" alt="Product 4" /><br />
+          <p>GLASSES<br />$5<br />Rating: 4.0</p>
+          <button class="add" onclick="addToCart('GLASSES', 5)">
+            ADD TO CART
+          </button>
+        </div>
+        <div class="box">
+          <img src="image/JACKET.jpg" alt="Product 5" /><br />
+          <p>JACKET<br />$20<br />Rating: 4.6</p>
+          <button class="add" onclick="addToCart('JACKET', 20)">
+            ADD TO CART
+          </button>
+        </div>
+        <div class="box">
+          <img src="image/WATCH.jpg" alt="Product 6" /><br />
+          <p>WATCH<br />$7<br />Rating: 4.3</p>
+          <button class="add" onclick="addToCart('WATCH', 7)">
+            ADD TO CART
+          </button>
+        </div>
+        <div class="box">
+          <img src="image/LEHENGA.jpg" alt="Product 7" /><br />
+          <p>LEHENGA<br />$25<br />Rating: 4.1</p>
+          <button class="add" onclick="addToCart('LEHENGA', 25)">
+            ADD TO CART
+          </button>
+        </div>
+        <div class="box">
+          <img src="image/MOBILE.jpg" alt="Product 8" /><br />
+          <p>MOBILE<br />$50<br />Rating: 3.8</p>
+          <button class="add" onclick="addToCart('MOBILE', 50)">
+            ADD TO CART
+          </button>
+        </div>
+        <div class="box">
+          <img src="image/EARBUDS.jpg" alt="Product 9" /><br />
+          <p>EARBUDS<br />$20<br />Rating: 4.4</p>
+          <button class="add" onclick="addToCart('EARBUDS', 20)">
+            ADD TO CART
+          </button>
+        </div>
+      </div>
+      <footer>@Thanks For Visiting</footer>
+    </div>
+    <script>
+      function addToCart(productName, price) {
+        var cartItems = localStorage.getItem("cartItems");
+        if (cartItems) {
+          cartItems = JSON.parse(cartItems);
+        } else {
+          cartItems = [];
+        }
+
+        var index = cartItems.findIndex(
+          (item) => item.productName === productName
+        );
+        if (index === -1) {
+          cartItems.push({ productName: productName, price: price });
+        } else {
+          cartItems.splice(index, 1);
+        }
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link rel="stylesheet" href="style5.css" />
+  </head>
+  <body>
+    <header>
+      <h1>MY SHOPPING CART</h1>
+    </header>
+    <div class="container" id="cart-items"></div>
+    <div class="total">
+      <p>Total Products: <span id="total-products"></span></p>
+      <p>Total Price: $<span id="total-price"></span></p><br>
+      <button><a href="payment.html">PLACE ORDER</a></button>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var cartItems = localStorage.getItem("cartItems");
+        var cartContainer = document.getElementById("cart-items");
+        var totalPrice = 0;
+        var totalProducts = 0;
+
+        if (cartItems) {
+          cartItems = JSON.parse(cartItems);
+          cartItems.forEach(function (item) {
+            var cartItem = document.createElement("div");
+            cartItem.classList.add("cart-item");
+            cartItem.innerHTML = `
+        <img src="image/${item.productName}.jpg" alt="${item.productName}">
+        <div class="details">
+          <p>${item.productName}</p>
+          <p>$${item.price}</p>
+        </div>
+      `;
+            cartContainer.appendChild(cartItem);
+            totalPrice += item.price;
+            totalProducts++;
+          });
+        }
+        document.getElementById("total-products").textContent = totalProducts;
+        document.getElementById("total-price").textContent =
+          totalPrice.toFixed(2);
+      });
+    </script>
+  </body>
+</html>

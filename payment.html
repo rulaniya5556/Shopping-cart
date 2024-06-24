@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment</title>
+    <link rel="stylesheet" href="style2.css"/>
+  </head>
+  <body>
+    <div class="head">
+      <h1><u>Credit Card Payment!!!</u></h1>
+    </div>
+    <div class="box">
+      <section>
+        <h2>Enter Details</h2>
+        <form id="payment-form" action="order.html" onsubmit="return validatePayment()">
+          <input type="text" name="card no." id="card-no" placeholder="Credit Card Number(xxxx xxxx xxxx xxxx)" required />
+          <input type="text" name="expiry date" id="expiry-date" placeholder="Expiry Date(MM/YY)" required />
+          <input type="text" name="cvv" id="cvv" placeholder="CVV(xxx)" required/>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </div>
+    <script>
+      function validatePayment() {
+          var cardNo = document.getElementById('card-no').value;
+          var expiryDate = document.getElementById('expiry-date').value;
+          var cvv = document.getElementById('cvv').value;
+
+          var predefinedCards = [
+              { cardNo: "1234 5678 9012 3456", expiryDate: "01/27", cvv: "123" },
+              { cardNo: "1111 2222 3333 4444", expiryDate: "01/28", cvv: "111" },
+              { cardNo: "5555 6666 7777 8888", expiryDate: "01/29", cvv: "555" }
+          ];
+
+          var matchedCard = predefinedCards.find(function(card) {
+              return card.cardNo === cardNo && card.expiryDate === expiryDate && card.cvv === cvv;
+          });
+
+          if (matchedCard) {
+              return true;
+          } else {
+              alert("Invalid card details. Please try again.");
+              return false;
+          }
+      }
+  </script>
+  </body>
+</html>
